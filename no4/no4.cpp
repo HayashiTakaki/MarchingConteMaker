@@ -29,6 +29,11 @@ int multiply(int a, int b){
 		sum += a;
 	}
 	
+	//符号の調整
+	if (a < 0 && b < 0) {
+		sum = minus(0, sum);
+	}
+	
 	return sum;
 }
 
@@ -37,8 +42,15 @@ int divide(int a, int b){
 	while (a > 0) {
 		a = minus(a, b);
 	}
+	ans += 1;
 	
-	return (ans+1);
+	//符号の調整
+	if (a < 0 && b < 0) {
+		ans = minus(0, ans);
+	}
+	
+	
+	return ans;
 }
 
 int main (int argc, char * const argv[]) {
