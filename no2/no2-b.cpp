@@ -47,7 +47,7 @@ template<class T> T queue<T>::peek(){
 }
 
 template<class T> T queue<T>::remove(){
-	if (!Q.empty()) {
+	if (!Q.size()) {
 		cout << "stack is empty" << endl;
 		exit(2);
 	}
@@ -56,16 +56,12 @@ template<class T> T queue<T>::remove(){
 }
 
 template<class T> void queue<T>::add(T element){
-	while (!Q.empty()) {
-		cout << "Qpop tmppush "<< endl;
+	while (Q.size()) {
 		temp.push(Q.pop());
 	}
-	cout << "Qpush" << endl;
 	Q.push(element);
 	
-	while (!temp.empty()) {
-		cout << "tmpop Qpush "<< endl;
-
+	while (temp.size()) {
 		Q.push(temp.pop());
 	}
 	
