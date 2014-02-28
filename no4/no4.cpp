@@ -1,5 +1,7 @@
 #include <iostream>
 
+//引き算
+//返り値　a-bの結果
 int minus(int a, int b){
 	int n;
 	if (a > b) {
@@ -23,14 +25,25 @@ int minus(int a, int b){
 	return 0;
 }
 
+
+//かけ算
+//返り値　a*bの結果
 int multiply(int a, int b){
 	
 	int sum = 0;
 	
+	//swap
+	if (abs(a) < abs(b)) {
+		int c;
+		c = a;
+		a = b;
+		b = c;
+	}
+	
+	//sumにaをb回加算する
 	for (int i = 0; i < abs(b); i++) {
 		sum += a;
 	}
-	
 	
 	//符号の調整
 	if (a < 0 && b < 0) {
@@ -42,6 +55,10 @@ int multiply(int a, int b){
 	return sum;
 }
 
+
+//割り算
+//返り値　a/bの結果
+//0の場合はエラーを返す
 int divide(int a, int b){
 	int ans = 0;
 	int temp = abs(a);
@@ -78,28 +95,23 @@ int divide(int a, int b){
 
 int main (int argc, char * const argv[]) {
 	int a,b;
-	a = 5;
-	b = 10;
+	a = 0;
+	b = 0;
 	
 	printf("a = %d, b = %d\n",a, b);
 	printf("minus %d\n",minus(a, b));
 	printf("mul %d\n",multiply(a, b));
 	printf("div %d\n\n",divide(a, b));
 	
-
-	
 	printf("a = %d, b = %d\n",-a, b);
 	printf("minus %d\n",minus(-a, b));
 	printf("mul %d\n",multiply(-a, b));
 	printf("div %d\n\n",divide(-a, b));
 	
-	
-	
 	printf("a = %d, b = %d\n",a, -b);
 	printf("minus %d\n",minus(a, -b));
 	printf("mul %d\n",multiply(a, -b));
 	printf("div %d\n\n",divide(a, -b));
-	
 	
 	printf("a = %d, b = %d\n",-a, -b);
 	printf("minus %d\n",minus(-a, -b));
